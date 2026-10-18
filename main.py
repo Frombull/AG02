@@ -34,9 +34,23 @@ def train(df):
     return model
 
 
+def read_sample():
+    region = ""
+    while region not in REGIONS:
+        region = input("Region (Lisbon, Oporto ou Other): ").strip().capitalize()
+    values = [REGIONS[region]]
+    for name in FEATURES[1:]:
+        values.append(float(input(f"{name} (u.m.): ")))
+    return pd.DataFrame([values], columns=FEATURES)
+
+
 def main():
     df = load_data()
-    train(df)
+    model = train(df)
+    names = {v: k for k, v in CHANNELS.items()}
+    while input("Classificar uma amostra? (s/n): ").strip().lower() == "s":
+        sample = read_sample()
+        print("Canal previsto:", names[int(model.predict(sample)[0])])
 
 
 if __name__ == "__main__":
