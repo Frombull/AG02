@@ -1,11 +1,10 @@
-# AG2 - Engenharia de Software (GES)
-# Aluno: Marco Di Toro - matricula 150
+# AG2, Marco Di Toro, 150, GES
 # Classificacao do canal de vendas (HoReCa x Retail) com Decision Tree
 
-import pandas as pd
-from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split
+from sklearn.metrics import classification_report
 from sklearn.tree import DecisionTreeClassifier
+import pandas as pd
 
 pd.set_option("future.no_silent_downcasting", True)
 
