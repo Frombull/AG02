@@ -33,13 +33,16 @@ def train(df):
 
 
 def read_sample():
-    region = ""
-    while region not in REGIONS:
-        region = input("Region (Lisbon, Oporto ou Other): ").strip().capitalize()
-    values = [REGIONS[region]]
-    for name in FEATURES[1:]:
-        values.append(float(input(f"{name} (u.m.): ")))
-    return pd.DataFrame([values], columns=FEATURES)
+    print("Amostra separada por virgula: " + ", ".join(FEATURES))
+    while True:
+        parts = [p.strip() for p in input("> ").split(",")]
+        region = parts[0].capitalize()
+        try:
+            if len(parts) == len(FEATURES) and region in REGIONS:
+                return pd.DataFrame([[REGIONS[region]] + [float(p) for p in parts[1:]]], columns=FEATURES)
+        except ValueError:
+            pass
+        print("Formato invalido. Exemplo: Other, 12669, 9656, 7561, 214, 2674, 1338")
 
 
 def main():
@@ -55,11 +58,8 @@ if __name__ == "__main__":
     main()
 
 
-# Retail   ---    HoReCa 
-# Other    ---    Other
-# 12669    ---    13265
-# 9656     ---    1196
-# 7561     ---    4221
-# 214      ---    6404
-# 2674     ---    507
-# 1338     ---    1788
+# Retail
+# Other, 12669, 9656, 7561, 214, 2674, 1338
+#
+# HoReCa
+# Other, 13265, 1196, 4221, 6404, 507, 1788
