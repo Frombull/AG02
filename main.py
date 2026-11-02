@@ -1,5 +1,4 @@
-# AG2, Marco Di Toro, 150, GES
-# Classificacao do canal de vendas (HoReCa x Retail) com Decision Tree
+# AG02, Marco Renzo Di Toro, 150, GES
 
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
@@ -54,3 +53,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+# Retail   ---    HoReCa 
+# Other    ---    Other
+# 12669    ---    13265
+# 9656     ---    1196
+# 7561     ---    4221
+# 214      ---    6404
+# 2674     ---    507
+# 1338     ---    1788
