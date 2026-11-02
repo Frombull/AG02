@@ -33,7 +33,6 @@ def train(df):
 
 
 def read_sample():
-    print("Amostra separada por virgula: " + ", ".join(FEATURES))
     while True:
         parts = [p.strip() for p in input("> ").split(",")]
         region = parts[0].capitalize()
