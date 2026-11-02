@@ -1,6 +1,6 @@
 AG02, Marco Di Toro, 150, GES
 
-Classifica o canal de vendas (HoReCa ou Retail) do dataset doWholesale customers usando uma Decision Tree.
+Classifica o canal de vendas (HoReCa ou Retail) do dataset Wholesale customers usando uma Decision Tree.
 
 Como rodar:
 
